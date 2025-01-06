@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: BMW
   maxSpeed: 10
-  initialAcceleration: 2
-  accelerationRate: 0.75
-  decelerationRate: 0.1
+  initialAcceleration: 5
+  accelerationRate: 1.5
+  accelerationStartTime: 0.5
+  decelerationRate: 0.5
+  breakRate: 10
+  rotationRate: 0.075
   openSeat: 0
   playerInCar: 1
