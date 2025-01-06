@@ -1,8 +1,17 @@
+using TMPro;
 using UnityEngine;
-
-public class PlaytimeTracker
+using UnityEngine.UI; 
+public class PlaytimeTracker : MonoBehaviour
 {
+    //Gemaakt door Roni
     private float totalPlaytime;
+    public TMP_Text playtimeText; 
+
+    void Update()
+    {
+        UpdatePlaytime(Time.deltaTime);
+        UpdateUI(); 
+    }
 
     public void UpdatePlaytime(float deltaTime)
     {
@@ -30,5 +39,11 @@ public class PlaytimeTracker
         totalPlaytime = PlayerPrefs.GetFloat("TotalPlaytime", 0);
     }
 
+    private void UpdateUI()
+    {
+        int minutes = Mathf.FloorToInt(totalPlaytime / 60);
+        int seconds = Mathf.FloorToInt(totalPlaytime % 60);
+
+        playtimeText.text = $"Playtime: {minutes:00}:{seconds:00}";
+    }
 }
-  
