@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 774980372}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02237aa924ae42b4c8a3bb616e5e8e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirePoint: {fileID: 1239398904}
+  firePoint: {fileID: 1239398904}
+  pistol: {fileID: 11400000, guid: d819bfd568ab2ff4e8871793a5db62e5, type: 2}
+  sub: {fileID: 11400000, guid: 2f3f0c259a3978249b38238b69938855, type: 2}
+  bullet: {fileID: 8879854787322667139, guid: 492899bc8ffb5454fac8278bdf5738eb, type: 3}
 --- !u!114 &1239398906
 MonoBehaviour:
   m_ObjectHideFlags: 0
