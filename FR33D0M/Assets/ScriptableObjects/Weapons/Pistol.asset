@@ -19,4 +19,4 @@ MonoBehaviour:
   damage: 0
   critRate: 0
   ammo: 20
-  reloadTime: 4
+  reloadTime: 2
