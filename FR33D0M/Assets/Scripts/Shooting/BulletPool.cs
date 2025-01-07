@@ -19,9 +19,9 @@ public class BulletPool : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i = 0; i < pooledObjects.Count; i++)
+        for(int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = Instantiate(pooledObjects[i]);
+            GameObject obj = Instantiate(BulletPreFab);
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }

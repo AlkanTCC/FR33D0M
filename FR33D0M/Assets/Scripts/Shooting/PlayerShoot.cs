@@ -8,13 +8,13 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] Weapons pistol;
     [SerializeField] Weapons sub;
-    [SerializeField] GameObject bullet;
     Weapons currentWeapon;
     bool shooting = false;
     bool reloading = false;
     int currentAmmoPistol;
     int currentAmmoSub;
-    int currentAmmo; // Start is called once before the first execution of Update after the MonoBehaviour is created
+    int currentAmmo;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentAmmoPistol = pistol.ammo;
@@ -72,9 +72,9 @@ public class PlayerShoot : MonoBehaviour
         if (currentWeapon == pistol && currentAmmoPistol > 0)
         {
             GameObject bullet = BulletPool.instance.GetGameObject();
-            if (bullet == null)
+            if (bullet != null)
             {
-                bullet.transform.position = firePoint.position;
+                bullet.transform.position = firePoint.transform.position;
                 bullet.SetActive(true);
             }
             currentAmmoPistol--;
@@ -82,12 +82,12 @@ public class PlayerShoot : MonoBehaviour
         }
         if (currentWeapon == sub && currentAmmoSub > 0)
         {
-            // Instantiate(bullet, firePoint.position, firePoint.rotation);
             GameObject bullet = BulletPool.instance.GetGameObject();
-            if (bullet == null)
+            if (bullet != null)
             {
                 bullet.transform.position = firePoint.position;
                 bullet.SetActive(true);
+                //bullet.GetComponent<Bullet>().AddForce();
             }
             currentAmmoSub--;
             Debug.Log(currentAmmoSub);
@@ -107,7 +107,6 @@ public class PlayerShoot : MonoBehaviour
                 yield return new WaitForSeconds((int)currentWeapon.reloadTime);
                 Debug.Log("Reloaded");
                 currentAmmoPistol = currentWeapon.ammo;
-                //eloading = false;
             }
             if (currentWeapon == sub)
             {
@@ -115,7 +114,6 @@ public class PlayerShoot : MonoBehaviour
                 yield return new WaitForSeconds((int)currentWeapon.reloadTime);
                 Debug.Log("Reloaded");
                 currentAmmoSub = currentWeapon.ammo;
-                //reloading = false;
             }
         }
             reloading = false;

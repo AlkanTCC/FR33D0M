@@ -20,3 +20,4 @@ MonoBehaviour:
   critRate: 0
   ammo: 20
   reloadTime: 2
+  range: 450
