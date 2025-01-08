@@ -7,7 +7,9 @@ public class DriveCarSystem : MonoBehaviour
     CarManager carManager;
     Rigidbody2D rb;
 
-    [SerializeField] CarObject carObject;
+    CarObject newCarObject;
+
+    public CarObject carObject;
 
     float speed;
 
@@ -23,9 +25,12 @@ public class DriveCarSystem : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         // Gaat in de carManager en daarna in de carObjectsArray en pakt een random CarObject die in de array zit en zet die dan in de carObject
-        carObject = carManager.carObjectsArray[Random.Range(0, carManager.carObjectsArray.Length)];
+        newCarObject = carManager.carObjectsArray[Random.Range(0, carManager.carObjectsArray.Length)];
+        carObject = Instantiate(newCarObject);
 
         accelerationTime = carObject.accelerationStartTime;
+
+        GetComponent<SpriteRenderer>().sprite = carObject.sprite;
     }
 
     private void Update()
@@ -35,21 +40,24 @@ public class DriveCarSystem : MonoBehaviour
 
     void DriveSystem()
     {
-        // Als de player niet in de auto zit gebeurd de code hier onder niet
-        if (!CheckPlayerInCar()) return;
-
         // Beweeg de auto omhoog keer de speed
         rb.linearVelocity = transform.up * speed;
 
-        CheckBreakCar();
-
-        if (speed != 0) ChangeDirection();
+        if (speed < 0 && !CheckPlayerInCar()) speed = 0;
 
         if (!CheckCarForward())
         {
             DecelerateCar();
-            return;
         }
+
+        // Als de player niet in de auto zit gebeurd de code hier onder niet
+        if (!CheckPlayerInCar()) return;
+
+        if (speed != 0) ChangeDirection();
+
+        CheckBreakCar();
+
+        if (!CheckCarForward()) return;
 
         AccelerateCar();
     }

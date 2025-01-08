@@ -7,6 +7,7 @@ public class CarObject : ScriptableObject
 
     [Header("Information")]
     public new string name;
+    public Sprite sprite;
 
     [Header("Speed")]
     public float maxSpeed;
