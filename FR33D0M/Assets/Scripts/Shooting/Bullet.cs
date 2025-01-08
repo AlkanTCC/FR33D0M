@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// gemaakt door Jin aljumaili
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
