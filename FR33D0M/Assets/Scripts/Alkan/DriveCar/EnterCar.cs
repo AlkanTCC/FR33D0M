@@ -8,8 +8,6 @@ public class EnterCar : MonoBehaviour
     PlayerRotation playerRotation;
     GameObject player;
 
-    GameObject lastHitCar;
-
     void Start()
     {
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
@@ -32,18 +30,13 @@ public class EnterCar : MonoBehaviour
         {
             if (hit.collider.GetComponent<DriveCarSystem>() != null)
             {
-                hit.collider.transform.GetChild(0).gameObject.SetActive(true);
-                lastHitCar = hit.collider.gameObject;
-
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     if (hit.collider.GetComponent<DriveCarSystem>().carObject.playerInCar == true) CarLeave(hit);
                     else CarEnter(hit);
                 }
             }
-            else lastHitCar.transform.GetChild(0).gameObject.SetActive(false);
         }
-        else if (lastHitCar != null) lastHitCar.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     void CarEnter(RaycastHit2D pHit)

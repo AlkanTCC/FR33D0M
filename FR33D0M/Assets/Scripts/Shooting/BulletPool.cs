@@ -32,6 +32,7 @@ public class BulletPool : MonoBehaviour
         {
             if(!pooledObjects[i].activeInHierarchy)
             {
+                pooledObjects[i].GetComponent<Bullet>().Rotation();
                 return pooledObjects[i];
             }
         }

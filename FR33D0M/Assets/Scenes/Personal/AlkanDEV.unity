@@ -278,6 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172599143}
   - component: {fileID: 172599144}
+  - component: {fileID: 172599145}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -318,6 +319,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d73d1c80f3c24994c8c65bf13e281379, type: 2}
   - {fileID: 11400000, guid: b46721974cd1cd340b87df2efc2f44f6, type: 2}
   - {fileID: 11400000, guid: 308344145cd9f324c96872ff1c8c4dff, type: 2}
+--- !u!114 &172599145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172599142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcff6178db795e45af40b0efca8e5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPreFab: {fileID: 8879854787322667139, guid: 492899bc8ffb5454fac8278bdf5738eb, type: 3}
 --- !u!1001 &305935297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,8 +403,9 @@ GameObject:
   - component: {fileID: 964280059}
   - component: {fileID: 964280058}
   - component: {fileID: 964280063}
+  - component: {fileID: 964280064}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,6 +583,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &964280064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964280057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02237aa924ae42b4c8a3bb616e5e8e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2015069149043648365, guid: 492899bc8ffb5454fac8278bdf5738eb, type: 3}
+  pistol: {fileID: 11400000, guid: d819bfd568ab2ff4e8871793a5db62e5, type: 2}
+  sub: {fileID: 11400000, guid: 2f3f0c259a3978249b38238b69938855, type: 2}
+  firePoint: {fileID: 964280062}
+  currentWeapon: {fileID: 0}
 --- !u!1 &1256507406
 GameObject:
   m_ObjectHideFlags: 0
