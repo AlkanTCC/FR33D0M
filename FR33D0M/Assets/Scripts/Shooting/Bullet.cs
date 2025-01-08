@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     {
         playerShoot = FindFirstObjectByType<PlayerShoot>();
         
+        rb.linearVelocity = new Vector2(0, 6);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,7 +28,6 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         position = transform.position;
-        rb.linearVelocity = new Vector2(0, 10);
         if (Vector2.Distance(playerShoot.firePoint.position, position) > playerShoot.currentWeapon.range)
         {
             print("out of range");

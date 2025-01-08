@@ -1,10 +1,10 @@
 using UnityEngine;
-using TMPro;
-using System.Runtime.CompilerServices;
-public class DamagePopUp : MonoBehaviour
+
+public class TakeDamage : MonoBehaviour
 {
-    public GameObject preFab, enemy;
-    TextMeshPro text;
+    public int HP;
+    [SerializeField] int damage;
+    bool agro = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +14,9 @@ public class DamagePopUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
