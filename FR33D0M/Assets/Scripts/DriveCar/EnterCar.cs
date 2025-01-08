@@ -41,7 +41,6 @@ public class EnterCar : MonoBehaviour
                     else CarEnter(hit);
                 }
             }
-            else lastHitCar.transform.GetChild(0).gameObject.SetActive(false);
         }
         else if (lastHitCar != null) lastHitCar.transform.GetChild(0).gameObject.SetActive(false);
     }
