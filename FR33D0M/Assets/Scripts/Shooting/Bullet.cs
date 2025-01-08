@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     PlayerShoot playerShoot;
     Vector2 position;
+    public bool enemyHit = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            enemyHit = true;
+            enemyHit = false;
             gameObject.SetActive(false);
         }
     }

@@ -1,7 +1,9 @@
 using UnityEngine;
-
-public class PlayTimeTracker : MonoBehaviour
+using TMPro;
+using System.Runtime.CompilerServices;
+public class DamagePopUp : MonoBehaviour
 {
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
