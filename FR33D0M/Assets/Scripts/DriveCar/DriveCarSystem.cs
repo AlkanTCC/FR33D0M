@@ -41,11 +41,9 @@ public class DriveCarSystem : MonoBehaviour
         // Beweeg de auto omhoog keer de speed
         rb.linearVelocity = transform.up * speed;
 
-        if (speed != 0)
-        {
-            ChangeDirection();
-            CheckBreakCar();
-        }
+        CheckBreakCar();
+
+        if (speed != 0) ChangeDirection();
 
         if (!CheckCarForward())
         {
@@ -94,7 +92,7 @@ public class DriveCarSystem : MonoBehaviour
     void BreakCar()
     {
         speed = speed - carObject.breakRate * Time.deltaTime;
-        speed = Mathf.Max(speed, 0);
+        speed = Mathf.Max(speed, -5);
     }
 
     bool CheckCarForward()
