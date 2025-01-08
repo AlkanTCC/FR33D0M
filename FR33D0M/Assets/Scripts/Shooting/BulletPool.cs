@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
+// Gemaakt door Jin aljumaili
 public class BulletPool : MonoBehaviour
 {
     public static BulletPool instance;
@@ -32,6 +33,7 @@ public class BulletPool : MonoBehaviour
         {
             if(!pooledObjects[i].activeInHierarchy)
             {
+                pooledObjects[i].GetComponent<Bullet>().Rotation();
                 return pooledObjects[i];
             }
         }
