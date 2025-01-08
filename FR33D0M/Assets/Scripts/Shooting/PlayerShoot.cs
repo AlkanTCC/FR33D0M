@@ -1,22 +1,27 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
+using System.Runtime.CompilerServices;
 
 // Gemaakt door Jin aljumaili //
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] Transform firePoint;
+    [SerializeField] Bullet bullet;
     [SerializeField] Weapons pistol;
     [SerializeField] Weapons sub;
-    Weapons currentWeapon;
+    public Transform firePoint;
+    public Weapons currentWeapon;
     bool shooting = false;
     bool reloading = false;
     int currentAmmoPistol;
     int currentAmmoSub;
     int currentAmmo;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         currentAmmoPistol = pistol.ammo;
         currentAmmoSub = sub.ammo;
 
@@ -25,6 +30,9 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
+
         if (!reloading) SwitchWeapons();
         if (Input.GetKeyUp(KeyCode.R) && !reloading)
         {
@@ -51,13 +59,19 @@ public class PlayerShoot : MonoBehaviour
         switch (Input.inputString)
         {
             case "1":
-                Debug.Log("pistol");
-                currentWeapon = pistol;
+                if (currentWeapon != pistol)
+                {
+                    Debug.Log("pistol");
+                    currentWeapon = pistol;
+                }
 
                 break;
             case "2":
-                Debug.Log("submachine gun");
-                currentWeapon = sub;
+                if (currentWeapon != sub)
+                {
+                    Debug.Log("submachine gun");
+                    currentWeapon = sub;
+                }
                 break;
             default:
                 if (currentWeapon == null)
