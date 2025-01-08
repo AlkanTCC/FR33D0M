@@ -12,7 +12,7 @@ public class PlayerRotation : MonoBehaviour
     Vector2 mousePos;
 
     Quaternion playerMoveRotation;
-    Quaternion playerMouseRotation;
+    public Quaternion playerMouseRotation;
 
     // Update is called once per frame
     void Update()
