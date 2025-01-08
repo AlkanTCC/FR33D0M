@@ -5,10 +5,10 @@ using UnityEngine;
 // Gemaakt door Jin aljumaili //
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] Transform firePoint;
+    public Transform firePoint;
     [SerializeField] Weapons pistol;
     [SerializeField] Weapons sub;
-    Weapons currentWeapon;
+    public Weapons currentWeapon;
     bool shooting = false;
     bool reloading = false;
     int currentAmmoPistol;
@@ -51,13 +51,19 @@ public class PlayerShoot : MonoBehaviour
         switch (Input.inputString)
         {
             case "1":
-                Debug.Log("pistol");
-                currentWeapon = pistol;
+                if (currentWeapon != pistol)
+                {
+                    Debug.Log("pistol");
+                    currentWeapon = pistol;
+                }
 
                 break;
             case "2":
-                Debug.Log("submachine gun");
-                currentWeapon = sub;
+                if (currentWeapon != sub)
+                {
+                    Debug.Log("submachine gun");
+                    currentWeapon = sub;
+                }
                 break;
             default:
                 if (currentWeapon == null)
