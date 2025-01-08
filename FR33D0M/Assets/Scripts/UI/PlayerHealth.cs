@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    // Gemaakt door Roni
     [SerializeField] private int maxHealth = 100; 
     [SerializeField] private int maxArmor = 100;  
 

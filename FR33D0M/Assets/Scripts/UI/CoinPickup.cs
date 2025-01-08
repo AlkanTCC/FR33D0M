@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CoinPickup : MonoBehaviour
 {
+    // Gemaakt door Roni
     [SerializeField] private int coinCount = 0; 
 
     [SerializeField] private TMP_Text coinText; 
