@@ -5,7 +5,8 @@ public class DamagePopUp : MonoBehaviour
 {
     public GameObject damagePreFab, enemy;
     TextMeshPro textMesh;
-
+    TakeDamage takeDamage;
+    PlayerShoot playerShoot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

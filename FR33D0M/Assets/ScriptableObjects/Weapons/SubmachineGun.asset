@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ceb686d1b3b0540b163c5ebadb9f7f, type: 3}
   m_Name: SubmachineGun
   m_EditorClassIdentifier: 
-  name: 
+  name: sub
   description: 
   price: 0
   fireRate: 0.3
-  damage: 0
+  damage: 20
   critRate: 0
   ammo: 40
   reloadTime: 2

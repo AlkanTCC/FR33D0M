@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    TakeDamage takeDamage;
     PlayerShoot playerShoot;
     Vector2 position;
     public bool enemyHit = false;
@@ -12,18 +13,21 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        takeDamage = FindFirstObjectByType<TakeDamage>();
         playerShoot = FindFirstObjectByType<PlayerShoot>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            enemyHit = true;
-            enemyHit = false;
+            takeDamage.HP = -playerShoot.currentWeapon.damage;
+            print(takeDamage.HP);
             gameObject.SetActive(false);
         }
     }
+   
+  
 
     // Update is called once per frame
     void Update()

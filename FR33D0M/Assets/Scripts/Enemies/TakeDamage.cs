@@ -3,7 +3,6 @@ using UnityEngine;
 public class TakeDamage : MonoBehaviour
 {
     public int HP;
-    [SerializeField] int damage;
     bool agro = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,9 +13,6 @@ public class TakeDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP <= 0)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }
