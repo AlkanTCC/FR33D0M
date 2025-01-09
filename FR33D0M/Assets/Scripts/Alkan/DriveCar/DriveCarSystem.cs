@@ -6,118 +6,60 @@ public class DriveCarSystem : MonoBehaviour
 
     CarManager carManager;
     Rigidbody2D rb;
-
-    CarObject newCarObject;
-
     public CarObject carObject;
 
-    float speed;
-
-    float accelerationTime;
-
-    bool isBreaking = false;
+    float currentSpeed = 0f;
 
     private void Start()
     {
-        // Zoekt de CarManager script in de scene en zet die in de carManager
         carManager = FindAnyObjectByType<CarManager>();
 
         rb = GetComponent<Rigidbody2D>();
 
-        // Gaat in de carManager en daarna in de carObjectsArray en pakt een random CarObject die in de array zit en zet die dan in de carObject
-        newCarObject = carManager.carObjectsArray[Random.Range(0, carManager.carObjectsArray.Length)];
-        carObject = Instantiate(newCarObject);
-
-        accelerationTime = carObject.accelerationStartTime;
+        carObject = Instantiate(carManager.carObjectsArray[Random.Range(0, carManager.carObjectsArray.Length)]);
 
         GetComponent<SpriteRenderer>().sprite = carObject.sprite;
     }
 
     private void Update()
     {
-        DriveSystem();
+        if (carObject.playerInCar) HandleMovement();
     }
 
-    void DriveSystem()
-    {
-        // Beweeg de auto omhoog keer de speed
-        rb.linearVelocity = transform.up * speed;
-
-        if (speed < 0 && !CheckPlayerInCar()) speed = 0;
-
-        if (!CheckCarForward())
-        {
-            DecelerateCar();
-        }
-
-        // Als de player niet in de auto zit gebeurd de code hier onder niet
-        if (!CheckPlayerInCar()) return;
-
-        if (speed != 0) ChangeDirection();
-
-        CheckBreakCar();
-
-        if (!CheckCarForward()) return;
-
-        AccelerateCar();
-    }
-
-    void AccelerateCar()
-    {
-        // Dit zorgt ervoor dat de speed value steeds sneller omhoog gaat
-        speed += carObject.initialAcceleration * Mathf.Pow(accelerationTime, 2) * carObject.accelerationRate * Time.deltaTime;
-
-        // Dit zorgt ervoor dat de kleinste nummer van de twee gereturned word. Dat zorgt ervoor dat de speed niet boven de max speed komt
-        speed = Mathf.Min(speed, carObject.maxSpeed);
-    }
-
-    void DecelerateCar()
-    {
-        speed -= carObject.initialAcceleration * Mathf.Pow(accelerationTime, 2) * carObject.decelerationRate * Time.deltaTime;
-        
-        if (!isBreaking) speed = Mathf.Max(speed, 0);
-
-        if (speed == 0) accelerationTime = carObject.accelerationStartTime;
-    }
-
-    void ChangeDirection()
-    {
-        // Rotate de auto naar links of naar rechts (licht eraan welke knop je indrukt)
-        if (Input.GetKey(KeyCode.A)) transform.Rotate(new Vector3(0, 0, carObject.rotationRate * speed));
-        else if (Input.GetKey(KeyCode.D)) transform.Rotate(new Vector3(0, 0, -carObject.rotationRate * speed));
-    }
-
-    void CheckBreakCar()
-    {
-        if (Input.GetKey(KeyCode.S))
-        {
-            isBreaking = true;
-            BreakCar();
-        }
-        else if (Input.GetKeyUp(KeyCode.S)) isBreaking = false;
-    }
-
-    void BreakCar()
-    {
-        speed = speed - carObject.breakRate * Time.deltaTime;
-        speed = Mathf.Max(speed, -5);
-    }
-
-    bool CheckCarForward()
+    void HandleMovement()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            accelerationTime += Time.deltaTime;
-            accelerationTime = Mathf.Min(accelerationTime, 2);
-            return true;
+            currentSpeed += carObject.accelerationRate * Time.deltaTime;
+            currentSpeed = Mathf.Clamp(currentSpeed, 0, carObject.maxSpeed);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed -= carObject.decelerationRate * Time.deltaTime;
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, carObject.maxSpeed);
+            }
+            else
+            {
+                currentSpeed -= carObject.accelerationRate * Time.deltaTime;
+                currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, 0);
+            }
+        }
+        else
+        {
+            currentSpeed -= carObject.decelerationRate * Time.deltaTime * Mathf.Sign(currentSpeed);
+            currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, carObject.maxSpeed);
         }
 
-        return false;
-    }
+        rb.linearVelocity = transform.up * currentSpeed;
 
-    bool CheckPlayerInCar()
-    {
-        if (carObject.playerInCar) return true;
-        return false;
+        float turnInput = Input.GetAxis("Horizontal");
+
+        if (currentSpeed != 0)
+        {
+            float scaledTurnSpeed = carObject.rotationRate * (Mathf.Abs(currentSpeed) / carObject.maxSpeed);
+            transform.Rotate(Vector3.forward, -turnInput * scaledTurnSpeed * Time.deltaTime * Mathf.Sign(currentSpeed));
+        }
     }
 }
