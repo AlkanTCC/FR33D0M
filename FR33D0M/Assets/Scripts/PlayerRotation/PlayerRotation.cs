@@ -33,7 +33,7 @@ public class PlayerRotation : MonoBehaviour
     void RotatePlayerToMousePos()
     {
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        playerMouseRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        playerMouseRotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, playerMouseRotation, playerRotationSpeed * Time.deltaTime);
     }
 

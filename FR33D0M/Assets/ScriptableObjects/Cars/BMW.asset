@@ -19,7 +19,7 @@ MonoBehaviour:
   accelerationRate: 1.5
   accelerationStartTime: 0.5
   decelerationRate: 0.5
-  breakRate: 10
+  breakRate: 100
   rotationRate: 0.075
   openSeat: 0
   playerInCar: 0

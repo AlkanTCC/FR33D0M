@@ -18,7 +18,8 @@ public class EnterCar : MonoBehaviour
     void Update()
     {
         Vector2 rayDirection = Vector2.zero;
-        if (!GetComponent<DriveCarSystem>().carObject.playerInCar) rayDirection = playerRotation.playerMouseRotation * Vector2.up;
+        Quaternion rotation = Quaternion.Euler(0, 0, 180);
+        if (!GetComponent<DriveCarSystem>().carObject.playerInCar) rayDirection = (playerRotation.playerMouseRotation * rotation) * Vector2.up;
 
         ownCollider.enabled = false;
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, rayDirection, enterDistance);
@@ -44,7 +45,7 @@ public class EnterCar : MonoBehaviour
         pHit.collider.GetComponent<DriveCarSystem>().carObject.playerInCar = true;
         player.transform.SetParent(pHit.collider.transform);
         player.transform.localPosition = Vector3.zero;
-        player.transform.localScale = Vector3.one;
+        player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         player.transform.rotation = pHit.collider.transform.rotation;
         player.SetActive(false);
     }
@@ -53,8 +54,8 @@ public class EnterCar : MonoBehaviour
     {
         pHit.collider.GetComponent<DriveCarSystem>().carObject.playerInCar = false;
         player.transform.SetParent(pHit.collider.transform.parent);
-        player.transform.localPosition = new Vector3(pHit.collider.transform.position.x, pHit.collider.transform.position.y, pHit.collider.transform.position.x);
-        player.transform.localScale = Vector3.one;
+        player.transform.localPosition = new Vector3(pHit.collider.transform.position.x, pHit.collider.transform.position.y, 0);
+        player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         player.transform.rotation = pHit.collider.transform.rotation;
         player.SetActive(true);
     }
