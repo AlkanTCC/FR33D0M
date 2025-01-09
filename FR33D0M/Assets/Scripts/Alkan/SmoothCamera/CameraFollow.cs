@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
         player = FindAnyObjectByType<PlayerMovement>().transform;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position = Vector3.Slerp(transform.position, new Vector3((player.position + offset).x, (player.position + offset).y, -10), speed * Time.deltaTime);
     }

@@ -1,12 +1,9 @@
 using UnityEngine;
-using TMPro;
-using System.Runtime.CompilerServices;
-public class DamagePopUp : MonoBehaviour
+
+public class TakeDamage : MonoBehaviour
 {
-    public GameObject damagePreFab, enemy;
-    TextMeshPro textMesh;
-    TakeDamage takeDamage;
-    PlayerShoot playerShoot;
+    public int HP = 500;
+    bool agro = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
