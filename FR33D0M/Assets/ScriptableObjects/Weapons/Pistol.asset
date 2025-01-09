@@ -15,9 +15,9 @@ MonoBehaviour:
   name: pistol
   description: 
   price: 0
-  fireRate: 1.5
+  fireRate: 0.5
   damage: 30
   critRate: 0
-  ammo: 20
+  ammo: 10000
   reloadTime: 2
   range: 6

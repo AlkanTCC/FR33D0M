@@ -15,9 +15,9 @@ MonoBehaviour:
   name: sub
   description: 
   price: 0
-  fireRate: 0.3
+  fireRate: 0.1
   damage: 20
   critRate: 0
-  ammo: 40
+  ammo: 1000
   reloadTime: 2
   range: 4.5
