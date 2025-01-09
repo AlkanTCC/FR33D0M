@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     Vector2 position;
     public bool enemyHit = false;
     GameObject player;
+    bool isCrit = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -23,15 +24,40 @@ public class Bullet : MonoBehaviour
         playerShoot = FindFirstObjectByType<PlayerShoot>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
+    private void Start()
+    {
+        CriticalHit();
+        if (CriticalHit() == true)
+        {
+            isCrit = true;
+            print("Criticalstrike ready");
+        }
+        isCrit = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            if (isCrit)
+            {
+                takeDamage.HP -= playerShoot.currentWeapon.damage * playerShoot.currentWeapon.critDmg;
+                print("Criticalstrike");
+            }
+
             takeDamage.HP -= playerShoot.currentWeapon.damage;
             GameObject damageInstance = Instantiate(GetPopUp(), enemy.transform);
             damageInstance.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = playerShoot.currentWeapon.damage.ToString();
-            print(takeDamage.HP);
             gameObject.SetActive(false);
+        }
+    }
+    private bool CriticalHit()
+    {
+        int criticalHit = Random.Range(0, 100);
+        if (criticalHit < playerShoot.currentWeapon.critRate) return true;
+        else
+        {
+
+        return false;
         }
     }
     private GameObject GetPopUp()
@@ -48,7 +74,7 @@ public class Bullet : MonoBehaviour
         else
         {
             return damagePreFab3;
-        }
+        } 
     }
    
   
