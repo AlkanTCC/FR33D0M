@@ -1205,7 +1205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bb7ed52fd6d4f49915d8dd529b00b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToMouse: 0
   playerRotationSpeed: 5
   playerMouseRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!95 &1676572632
