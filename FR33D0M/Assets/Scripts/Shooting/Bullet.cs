@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class Bullet : MonoBehaviour
 {
 
-    public GameObject damagePreFab1,damagePreFab2, damagePreFab3, enemy;
+    public GameObject damagePreFab1,damagePreFab2, damagePreFab3, damagePreFabCrit, enemy;
     TextMeshPro textMesh;
     [SerializeField] Rigidbody2D rb;
     TakeDamage takeDamage;
@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     Vector2 position;
     public bool enemyHit = false;
     GameObject player;
+    int totalDamage;
+    bool isCrit = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -23,15 +25,36 @@ public class Bullet : MonoBehaviour
         playerShoot = FindFirstObjectByType<PlayerShoot>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            if (CriticalHit())
+            {
+                totalDamage = playerShoot.currentWeapon.damage * playerShoot.currentWeapon.critDmg;
+                takeDamage.HP -= totalDamage;
+                print("Criticalstrike");
+                GameObject damageInstanceCrit = Instantiate(damagePreFabCrit, enemy.transform);
+                damageInstanceCrit.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = totalDamage.ToString();
+            }
+            else
+            {
             takeDamage.HP -= playerShoot.currentWeapon.damage;
             GameObject damageInstance = Instantiate(GetPopUp(), enemy.transform);
             damageInstance.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = playerShoot.currentWeapon.damage.ToString();
-            print(takeDamage.HP);
+            }
             gameObject.SetActive(false);
+        }
+    }
+    private bool CriticalHit()
+    {
+        int criticalHit = Random.Range(0, 100);
+        if (criticalHit < playerShoot.currentWeapon.critRate) return true;
+        else
+        {
+
+        return false;
         }
     }
     private GameObject GetPopUp()
@@ -48,7 +71,7 @@ public class Bullet : MonoBehaviour
         else
         {
             return damagePreFab3;
-        }
+        } 
     }
    
   

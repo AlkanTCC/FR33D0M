@@ -12,4 +12,5 @@ public class Weapons : ScriptableObject
     public int ammo;
     public float reloadTime;
     public float range;
+    public int critDmg;
 }

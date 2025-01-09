@@ -141,6 +141,7 @@ MonoBehaviour:
   damagePreFab1: {fileID: 5629264286482935922, guid: 1fc102c0db494974db07d73b498974c6, type: 3}
   damagePreFab2: {fileID: 5629264286482935922, guid: ba2a0e06a4fe259498c0bc8daf06f848, type: 3}
   damagePreFab3: {fileID: 5629264286482935922, guid: d38b32bd29c907b46892674d54c8658b, type: 3}
+  damagePreFabCrit: {fileID: 6824957423578320444, guid: 7aa92d6a41d5168439b4f0080d14ae22, type: 3}
   enemy: {fileID: 0}
   rb: {fileID: 1569485801829337389}
   enemyHit: 0
