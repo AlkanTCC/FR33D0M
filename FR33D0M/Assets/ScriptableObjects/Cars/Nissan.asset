@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Nissan
   sprite: {fileID: -6902476039500356962, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
-  maxSpeed: 10
-  accelerationRate: 3
-  decelerationRate: 5
-  breakRate: 10
-  rotationRate: 150
+  maxSpeed: 10.5
+  accelerationRate: 3.6
+  decelerationRate: 5.5
+  rotationRate: 145
   playerInCar: 0

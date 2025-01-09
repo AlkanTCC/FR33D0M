@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Audi
   sprite: {fileID: -931598462713293962, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
-  maxSpeed: 10
-  accelerationRate: 3
+  maxSpeed: 12.5
+  accelerationRate: 4.2
   decelerationRate: 5
-  breakRate: 10
   rotationRate: 150
   playerInCar: 0

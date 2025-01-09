@@ -18,9 +18,6 @@ public class CarObject : ScriptableObject
     [Header("Deceleration")]
     public float decelerationRate;
 
-    [Header("Break")]
-    public float breakRate;
-
     [Header("Rotation")]
     public float rotationRate;
 

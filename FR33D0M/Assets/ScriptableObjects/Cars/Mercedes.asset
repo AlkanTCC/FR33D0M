@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mercedes
   sprite: {fileID: 6947908207949566423, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
-  maxSpeed: 10
-  accelerationRate: 3
-  decelerationRate: 5
-  breakRate: 10
+  maxSpeed: 14
+  accelerationRate: 4
+  decelerationRate: 5.5
   rotationRate: 150
   playerInCar: 0

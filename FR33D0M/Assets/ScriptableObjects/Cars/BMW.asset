@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: BMW
   sprite: {fileID: 6946151450223818293, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
-  maxSpeed: 10
-  accelerationRate: 3
-  decelerationRate: 5
-  breakRate: 10
-  rotationRate: 150
+  maxSpeed: 13
+  accelerationRate: 4.5
+  decelerationRate: 5.2
+  rotationRate: 160
   playerInCar: 0

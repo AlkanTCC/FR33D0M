@@ -1,8 +1,12 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DriveCarSystem : MonoBehaviour
 {
     // Gemaakt door: Alkan Cakir
+
+    TMP_Text speedText;
 
     CarManager carManager;
     Rigidbody2D rb;
@@ -12,6 +16,8 @@ public class DriveCarSystem : MonoBehaviour
 
     private void Start()
     {
+        speedText = GameObject.FindGameObjectWithTag("SpeedText").GetComponent<TMP_Text>();
+
         carManager = FindAnyObjectByType<CarManager>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +29,14 @@ public class DriveCarSystem : MonoBehaviour
 
     private void Update()
     {
-        if (carObject.playerInCar) HandleMovement();
+        if (carObject.playerInCar)
+        {
+            HandleMovement();
+            speedText.text = ((int)(currentSpeed * 10)).ToString();
+            print(currentSpeed * 10);
+        }
+
+        ApplyDeceleration();
     }
 
     void HandleMovement()
@@ -37,7 +50,7 @@ public class DriveCarSystem : MonoBehaviour
         {
             if (currentSpeed > 0)
             {
-                currentSpeed -= carObject.decelerationRate * Time.deltaTime;
+                currentSpeed -= carObject.decelerationRate * 1.5f * Time.deltaTime;
                 currentSpeed = Mathf.Clamp(currentSpeed, 0, carObject.maxSpeed);
             }
             else
@@ -46,13 +59,6 @@ public class DriveCarSystem : MonoBehaviour
                 currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, 0);
             }
         }
-        else
-        {
-            currentSpeed -= carObject.decelerationRate * Time.deltaTime * Mathf.Sign(currentSpeed);
-            currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, carObject.maxSpeed);
-        }
-
-        rb.linearVelocity = transform.up * currentSpeed;
 
         float turnInput = Input.GetAxis("Horizontal");
 
@@ -62,4 +68,16 @@ public class DriveCarSystem : MonoBehaviour
             transform.Rotate(Vector3.forward, -turnInput * scaledTurnSpeed * Time.deltaTime * Mathf.Sign(currentSpeed));
         }
     }
+
+    void ApplyDeceleration()
+    {
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && currentSpeed != 0)
+        {
+            currentSpeed -= carObject.decelerationRate * Time.deltaTime * Mathf.Sign(currentSpeed);
+            currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, carObject.maxSpeed);
+        }
+
+        rb.linearVelocity = transform.up * currentSpeed;
+    }
+
 }
