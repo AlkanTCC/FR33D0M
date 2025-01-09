@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c68058a4fd02854c851f164e67e4f03
-      internalID: 1174252622
+      spriteID: 5e94a35591013f0489bb9a7a1a5cc184
+      internalID: -1515888159
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       name: Ground_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e381d9e9e08f14a4ebefcc381484c4bc
-      internalID: 50082431
+      spriteID: b5dd378a95534a34db2636a839fa37e1
+      internalID: -543730812
       vertices: []
       indices: 
       edges: []
@@ -195,6 +195,28 @@ TextureImporter:
       name: Ground_3
       rect:
         serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc76b8103a0ae2044b0c79074958e423
+      internalID: 1922391402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_4
+      rect:
+        serializedVersion: 2
         x: 32
         y: 32
         width: 32
@@ -207,14 +229,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c8c969fc7535584db003dfb552a6734
-      internalID: -1052476028
+      spriteID: c08c994c712a59a449e0bdde4d6654a4
+      internalID: -1240969205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_4
+      name: Ground_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a494325b561c31469b953c16ae77392
+      internalID: 1333426502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_6
       rect:
         serializedVersion: 2
         x: 0
@@ -229,30 +273,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba117329c38ba0841b82b432332b938b
-      internalID: -13553603
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 541fe20c9cafa6a4bb0ca3973d552852
-      internalID: 418043428
+      spriteID: 562e0ca295cba964cba41bcb01f38f04
+      internalID: 1058554052
       vertices: []
       indices: 
       edges: []
@@ -261,7 +283,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37432472f5580704bb1217bd86f7749e
+    spriteID: 290a2a7109e27d94e9c457aad9af560d
     internalID: 0
     vertices: []
     indices: 
@@ -272,11 +294,12 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Ground_0: 6682738439518977790
-      Ground_1: 1174252622
-      Ground_2: 50082431
-      Ground_3: -1052476028
-      Ground_4: -13553603
-      Ground_5: 418043428
+      Ground_1: -1515888159
+      Ground_2: -543730812
+      Ground_3: 1922391402
+      Ground_4: -1240969205
+      Ground_5: 1333426502
+      Ground_6: 1058554052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

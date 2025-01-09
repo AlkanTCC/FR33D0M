@@ -15,11 +15,7 @@ MonoBehaviour:
   name: Toyota
   sprite: {fileID: -592538902078482287, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
   maxSpeed: 10
-  initialAcceleration: 5
-  accelerationRate: 1.5
-  accelerationStartTime: 0.5
-  decelerationRate: 0.5
-  breakRate: 100
-  rotationRate: 0.075
-  openSeat: 0
+  accelerationRate: 3.4
+  decelerationRate: 6
+  rotationRate: 140
   playerInCar: 0
