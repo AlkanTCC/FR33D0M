@@ -7,11 +7,12 @@ public class Bullet : MonoBehaviour
     PlayerShoot playerShoot;
     Vector2 position;
     public bool enemyHit = false;
+    GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         playerShoot = FindFirstObjectByType<PlayerShoot>();
-        
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         position = transform.position;
-        rb.linearVelocity = new Vector2(0, 10);
+        rb.linearVelocity = -(transform.up * 10);
         if (Vector2.Distance(playerShoot.firePoint.position, position) > playerShoot.currentWeapon.range)
         {
             print("out of range");
@@ -35,4 +36,8 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void Rotation()
+    {
+        transform.rotation = player.transform.rotation;
+    }
 }
