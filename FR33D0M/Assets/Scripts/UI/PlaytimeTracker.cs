@@ -44,6 +44,7 @@ public class PlaytimeTracker : MonoBehaviour
         int minutes = Mathf.FloorToInt(totalPlaytime / 60);
         int seconds = Mathf.FloorToInt(totalPlaytime % 60);
 
-        playtimeText.text = $"Playtime: {minutes:00}:{seconds:00}";
+        playtimeText.text = $"<color=yellow>{minutes:00}:{seconds:00}</color>";
+
     }
 }

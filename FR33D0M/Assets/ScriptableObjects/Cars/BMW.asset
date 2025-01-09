@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2b16dcf68a5714bbe892adcc81d08f, type: 3}
+  m_Name: BMW
+  m_EditorClassIdentifier: 
+  name: BMW
+  sprite: {fileID: 6946151450223818293, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
+  maxSpeed: 10
+  initialAcceleration: 5
+  accelerationRate: 1.5
+  accelerationStartTime: 0.5
+  decelerationRate: 0.5
+  breakRate: 100
+  rotationRate: 0.075
+  openSeat: 0
+  playerInCar: 0
