@@ -18,7 +18,7 @@ MonoBehaviour:
   fireRate: 0.1
   damage: 20
   critRate: 20
-  ammo: 1000
+  ammo: 30
   reloadTime: 2
   range: 4.5
   critDmg: 2

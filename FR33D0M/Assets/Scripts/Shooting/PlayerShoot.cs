@@ -92,7 +92,6 @@ public class PlayerShoot : MonoBehaviour
                 bullet.SetActive(true);
             }
             currentAmmoPistol--;
-            Debug.Log(currentAmmoPistol);
         }
         if (currentWeapon == sub && currentAmmoSub > 0)
         {
@@ -104,7 +103,6 @@ public class PlayerShoot : MonoBehaviour
                 //bullet.GetComponent<Bullet>().AddForce();
             }
             currentAmmoSub--;
-            Debug.Log(currentAmmoSub);
         }
 
     }

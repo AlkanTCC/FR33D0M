@@ -83,7 +83,7 @@ public class Bullet : MonoBehaviour
         rb.linearVelocity = -(transform.up * 10);
         if (Vector2.Distance(playerShoot.firePoint.position, position) > playerShoot.currentWeapon.range)
         {
-            print("out of range");
+            //print("out of range");
             gameObject.SetActive(false);
         }
     }

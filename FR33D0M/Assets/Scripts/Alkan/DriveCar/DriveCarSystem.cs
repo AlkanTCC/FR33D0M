@@ -12,7 +12,7 @@ public class DriveCarSystem : MonoBehaviour
     Rigidbody2D rb;
     public CarObject carObject;
 
-    float currentSpeed = 0f;
+    public float currentSpeed = 0f;
 
     private void Start()
     {
@@ -33,7 +33,6 @@ public class DriveCarSystem : MonoBehaviour
         {
             HandleMovement();
             speedText.text = ((int)(currentSpeed * 10)).ToString();
-            print(currentSpeed * 10);
         }
 
         ApplyDeceleration();
@@ -43,17 +42,25 @@ public class DriveCarSystem : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            currentSpeed += carObject.accelerationRate * Time.deltaTime;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0, carObject.maxSpeed);
+            if (currentSpeed < 0) // If reversing, decelerate to zero first
+            {
+                currentSpeed += carObject.decelerationRate * 2f * Time.deltaTime;
+                currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, 0);
+            }
+            else // Normal acceleration when not reversing
+            {
+                currentSpeed += carObject.accelerationRate * Time.deltaTime;
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, carObject.maxSpeed);
+            }
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            if (currentSpeed > 0)
+            if (currentSpeed > 0) // If moving forward, decelerate to zero first
             {
-                currentSpeed -= carObject.decelerationRate * 1.5f * Time.deltaTime;
+                currentSpeed -= carObject.decelerationRate * 2f * Time.deltaTime;
                 currentSpeed = Mathf.Clamp(currentSpeed, 0, carObject.maxSpeed);
             }
-            else
+            else // Normal reverse acceleration when not moving forward
             {
                 currentSpeed -= carObject.accelerationRate * Time.deltaTime;
                 currentSpeed = Mathf.Clamp(currentSpeed, -carObject.maxSpeed / 2, 0);
@@ -68,6 +75,7 @@ public class DriveCarSystem : MonoBehaviour
             transform.Rotate(Vector3.forward, -turnInput * scaledTurnSpeed * Time.deltaTime * Mathf.Sign(currentSpeed));
         }
     }
+
 
     void ApplyDeceleration()
     {
