@@ -7,11 +7,6 @@ public class NPCObject : ScriptableObject
     public bool enemy;
     public bool civilian;
 
-    [Header("Character")]
-    public bool scared;
-    public bool neutral;
-    public bool brave;
-
     [Header("Stats")]
     public float health;
     public float speed;

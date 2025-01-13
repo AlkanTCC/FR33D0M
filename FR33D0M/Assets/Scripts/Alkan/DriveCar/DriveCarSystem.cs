@@ -71,7 +71,7 @@ public class DriveCarSystem : MonoBehaviour
 
         if (currentSpeed != 0)
         {
-            float scaledTurnSpeed = carObject.rotationRate * (Mathf.Abs(currentSpeed) / carObject.maxSpeed);
+            float scaledTurnSpeed = carObject.rotationRate * 1.25f * (Mathf.Abs(currentSpeed) / carObject.maxSpeed);
             transform.Rotate(Vector3.forward, -turnInput * scaledTurnSpeed * Time.deltaTime * Mathf.Sign(currentSpeed));
         }
     }
@@ -88,4 +88,9 @@ public class DriveCarSystem : MonoBehaviour
         rb.linearVelocity = transform.up * currentSpeed;
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<NPCWalkingSystem>() != null) collision.gameObject.GetComponent<NPCWalkingSystem>().CarCollision(rb);
+    }
 }
