@@ -107,6 +107,6 @@ public class NPCWalkingSystem : MonoBehaviour
         agent.enabled = false;
 
         rb.AddForce(pDriveCarSystem.GetComponent<Rigidbody2D>().linearVelocity / 2, ForceMode2D.Impulse);
-        npc.health -= (int)(pDriveCarSystem.currentSpeed * 5);
+        npc.health -= (int)(pDriveCarSystem.currentSpeed * 10);
     }
 }
