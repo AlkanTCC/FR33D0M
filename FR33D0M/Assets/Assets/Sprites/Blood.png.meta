@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 42b6ac3882e73b74ba2e3ffafa39d591
+guid: 5aff7094beedc9b46960a35f8c1e7071
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8117021865844753015
-    second: Ground-export_0
+      213: 5684327315910396547
+    second: Blood_0
+  - first:
+      213: -1189345562256101844
+    second: Blood_1
+  - first:
+      213: 5722333315871558701
+    second: Blood_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,11 +132,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ground-export_0
+      name: Blood_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 64
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -141,127 +147,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77241c3916475a070800000000000000
-      internalID: 8117021865844753015
+      spriteID: 38a83e3b399c2ee40800000000000000
+      internalID: 5684327315910396547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground-export_1
+      name: Blood_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 584b8534e9970684497ae2997f6fc655
-      internalID: 2066155500
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground-export_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ddcd01b0f822794b815c8aef9a31e3d
-      internalID: -992005030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground-export_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d18397edc8e6c845b94d46b1da17ac7
-      internalID: 993362442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground-export_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 429ed39c93fa6b44e996c1b16082ce14
-      internalID: -1818698067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground-export_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4a8a60ee2f52cd4cac22d350c8ce1bb
-      internalID: -352312112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground-export_6
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -271,19 +167,19 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cd4723b0fab940849ac9351156dbe99f
-      internalID: -211248045
+      spriteID: c2ea98633889e7fe0800000000000000
+      internalID: -1189345562256101844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground-export_7
+      name: Blood_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 0
         width: 32
         height: 32
@@ -293,32 +189,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 65b2caa34e4b4564e800360d9dd63d56
-      internalID: 1926875925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground-export_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2e839a204e026946a0ef33a27aa71cc
-      internalID: -1921581645
+      spriteID: d2c48e225dfc96f40800000000000000
+      internalID: 5722333315871558701
       vertices: []
       indices: 
       edges: []
@@ -327,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ced6d74da64c55c4098947b0fa4076b5
+    spriteID: 8cd9934bc43a2a14f921c9715c0e1a65
     internalID: 0
     vertices: []
     indices: 
@@ -337,15 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ground-export_0: 8117021865844753015
-      Ground-export_1: 2066155500
-      Ground-export_2: -992005030
-      Ground-export_3: 993362442
-      Ground-export_4: -1818698067
-      Ground-export_5: -352312112
-      Ground-export_6: -211248045
-      Ground-export_7: 1926875925
-      Ground-export_8: -1921581645
+      Blood_0: 5684327315910396547
+      Blood_1: -1189345562256101844
+      Blood_2: 5722333315871558701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

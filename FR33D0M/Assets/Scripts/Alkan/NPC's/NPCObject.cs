@@ -8,6 +8,6 @@ public class NPCObject : ScriptableObject
     public bool civilian;
 
     [Header("Stats")]
-    public float health;
+    public int health;
     public float speed;
 }
