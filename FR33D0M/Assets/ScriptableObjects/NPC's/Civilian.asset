@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce2b16dcf68a5714bbe892adcc81d08f, type: 3}
-  m_Name: Audi
+  m_Script: {fileID: 11500000, guid: cf1fadf271988e441aff95d0e0794c7c, type: 3}
+  m_Name: Civilian
   m_EditorClassIdentifier: 
-  name: Audi
-  sprite: {fileID: -931598462713293962, guid: 1b92a0c9eb9221946a2c55ac2b01d655, type: 3}
-  maxSpeed: 12.5
-  accelerationRate: 4.2
-  decelerationRate: 5
-  rotationRate: 170
-  playerInCar: 0
+  enemy: 0
+  civilian: 1
+  health: 500
+  speed: 2
