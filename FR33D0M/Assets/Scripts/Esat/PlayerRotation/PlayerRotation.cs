@@ -11,7 +11,7 @@ public class PlayerRotation : MonoBehaviour
     public Quaternion playerMouseRotation;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         RotatePlayerToMousePos();
