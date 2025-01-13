@@ -17,5 +17,5 @@ MonoBehaviour:
   maxSpeed: 12.5
   accelerationRate: 4.2
   decelerationRate: 5
-  rotationRate: 150
+  rotationRate: 170
   playerInCar: 0
