@@ -42,7 +42,7 @@ public class NPCWalkingSystem : MonoBehaviour
         RandomStartLocation();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (npc.health > 0)
         {
