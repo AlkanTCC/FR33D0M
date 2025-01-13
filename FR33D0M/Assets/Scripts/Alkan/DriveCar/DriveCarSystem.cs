@@ -27,7 +27,7 @@ public class DriveCarSystem : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = carObject.sprite;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (carObject.playerInCar)
         {
