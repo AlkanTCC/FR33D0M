@@ -27,7 +27,7 @@ public class CoinPickup : MonoBehaviour
 
     private void UpdateCoinUI()
     {
-        coinText.text = "<color=blue>$" + coinCount.ToString("D8") + "</color>";
+        coinText.text = "<color=#87CEEB>$" + coinCount.ToString("D8") + "</color>";
     }
 
 }
