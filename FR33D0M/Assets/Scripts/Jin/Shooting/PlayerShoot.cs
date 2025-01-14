@@ -123,7 +123,7 @@ public class PlayerShoot : MonoBehaviour
             if (currentWeapon == sub)
             {
                 Debug.Log("reloading");
-                yield return new WaitForSeconds((int)currentWeapon.reloadTime);
+                yield return new WaitForSeconds(currentWeapon.reloadTime);
                 Debug.Log("Reloaded");
                 currentAmmoSub = currentWeapon.ammo;
             }
