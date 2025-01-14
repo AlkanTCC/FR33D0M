@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5340692851239453952}
   - component: {fileID: 498291406704990728}
   - component: {fileID: 6260395565558352832}
-  - component: {fileID: 5560252041148864724}
   m_Layer: 7
   m_Name: NPC
   m_TagString: Enemy
@@ -81,9 +80,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 620207109
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5553945559134905056, guid: dcfecf8a9edc6d34bb2b310260a591ea, type: 3}
-  m_Color: {r: 1, g: 0.78105474, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.2155745, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,8 +163,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 2
-  m_AngularDamping: 1
+  m_LinearDamping: 1
+  m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -212,17 +211,3 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5560252041148864724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6488160716446084184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b4c1886f71f1342bfdb1954b0b6f87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blood: {fileID: 5572519550027296521, guid: 94e3f0cdbfe0a1f448cd5623d142b3c8, type: 3}
-  health: 0

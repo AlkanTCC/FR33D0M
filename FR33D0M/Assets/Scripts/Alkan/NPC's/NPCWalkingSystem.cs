@@ -11,7 +11,6 @@ public class NPCWalkingSystem : MonoBehaviour
     Rigidbody2D rb;
     NPCManager npcManager;
     NavMeshAgent agent;
-    NPC npc;
 
     NPCObject npcObject;
     List<Vector3Int> allTilePositions;
@@ -27,7 +26,6 @@ public class NPCWalkingSystem : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         npcManager = FindAnyObjectByType<NPCManager>();
-        npc = GetComponent<NPC>();
 
         npcObject = Instantiate(npcManager.npcObjectArray[Random.Range(0, npcManager.npcObjectArray.Length)]);
         allTilePositions = npcManager.allTilePositions;
@@ -35,31 +33,28 @@ public class NPCWalkingSystem : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        agent.speed = Random.Range((float)(npcObject.speed - 1), (float)(npcObject.speed + 1));
+        agent.speed = npcObject.speed;
 
-        npc.health = Random.Range(npcObject.health - 20, npc.health + 20);
 
-        RandomStartLocation();
+
+        ChooseRandomTargetLocation();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (npc.health > 0)
+        if (agent != null)
         {
-            if (agent != null)
-            {
-                if (npcObject.civilian) Civillian();
-                else if (npcObject.enemy) Enemy();
-            }
-
-            if (Mathf.Abs(rb.linearVelocity.x) <= 0.5f && Mathf.Abs(rb.linearVelocity.y) <= 0.5f && !agent.enabled) agent.enabled = true;
-            if (agent.enabled) rb.linearVelocity = Vector2.zero;
+            if (npcObject.civilian) Civillian();
+            else if (npcObject.enemy) Enemy();
         }
+
+        if (rb.linearVelocity == Vector2.zero) agent.enabled = true;
+        if (agent.enabled) rb.linearVelocity = Vector2.zero;
     }
 
     void Civillian()
     {
-        if (agent.enabled && npc.health > 0) agent.SetDestination(target);
+        if (agent.enabled) agent.SetDestination(target);
         RotateToTarget();
 
         if (IsAtTarget()) ChooseRandomTargetLocation();
@@ -84,11 +79,8 @@ public class NPCWalkingSystem : MonoBehaviour
 
     void RotateToTarget()
     {
-        if (agent.enabled)
-        {
-            float angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle + 90);
-        }
+        float angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
     bool IsAtTarget()
@@ -102,11 +94,10 @@ public class NPCWalkingSystem : MonoBehaviour
         return false;
     }
 
-    public void CarCollision(DriveCarSystem pDriveCarSystem)
+    public void CarCollision(Rigidbody2D pCarRb)
     {
         agent.enabled = false;
 
-        rb.AddForce(pDriveCarSystem.GetComponent<Rigidbody2D>().linearVelocity / 2, ForceMode2D.Impulse);
-        npc.health -= (int)(pDriveCarSystem.currentSpeed * 10);
+        rb.AddForce(pCarRb.linearVelocity / 2, ForceMode2D.Impulse);
     }
 }

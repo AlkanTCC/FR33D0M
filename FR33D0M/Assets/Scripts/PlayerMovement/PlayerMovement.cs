@@ -6,16 +6,10 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     private Vector2 movement;
     private Rigidbody2D rb;
-    [SerializeField] Sprite playerSprite;
-    SpriteRenderer spriteRenderer;
-
-    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -24,13 +18,6 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(moveX, moveY).normalized;
-
-        if (movement != Vector2.zero) animator.enabled = true;
-        else
-        {
-            animator.enabled = false;
-            spriteRenderer.sprite = playerSprite;
-        }
     }
 
     void FixedUpdate()

@@ -27,7 +27,7 @@ public class DriveCarSystem : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = carObject.sprite;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (carObject.playerInCar)
         {
@@ -91,6 +91,6 @@ public class DriveCarSystem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<NPCWalkingSystem>() != null) collision.gameObject.GetComponent<NPCWalkingSystem>().CarCollision(this);
+        if (collision.gameObject.GetComponent<NPCWalkingSystem>() != null) collision.gameObject.GetComponent<NPCWalkingSystem>().CarCollision(rb);
     }
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 0
   civilian: 1
-  health: 100
+  health: 500
   speed: 2
