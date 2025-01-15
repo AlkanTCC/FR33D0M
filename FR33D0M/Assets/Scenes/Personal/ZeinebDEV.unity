@@ -889,7 +889,6 @@ GameObject:
   - component: {fileID: 272065132}
   - component: {fileID: 272065131}
   - component: {fileID: 272065130}
-  - component: {fileID: 272065129}
   - component: {fileID: 272065128}
   - component: {fileID: 272065127}
   m_Layer: 0
@@ -935,23 +934,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &272065129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272065126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02237aa924ae42b4c8a3bb616e5e8e54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 2015069149043648365, guid: 492899bc8ffb5454fac8278bdf5738eb, type: 3}
-  pistol: {fileID: 11400000, guid: d819bfd568ab2ff4e8871793a5db62e5, type: 2}
-  sub: {fileID: 11400000, guid: 2f3f0c259a3978249b38238b69938855, type: 2}
-  firePoint: {fileID: 272065134}
-  currentWeapon: {fileID: 0}
 --- !u!61 &272065130
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1024,7 +1006,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &272065132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4160,6 +4142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8858b6c25b0dc2541b15c64014abce4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCanvas: {fileID: 1786149909}
 --- !u!61 &1365768174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5132,7 +5115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772420488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bcff6178db795e45af40b0efca8e5cb, type: 3}
   m_Name: 
