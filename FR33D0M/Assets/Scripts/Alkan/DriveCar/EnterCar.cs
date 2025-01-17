@@ -8,8 +8,6 @@ public class EnterCar : MonoBehaviour
     PlayerRotation playerRotation;
     GameObject player;
 
-    bool isInCar = false;
-
     void Start()
     {
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
@@ -19,8 +17,6 @@ public class EnterCar : MonoBehaviour
 
     void Update()
     {
-        if (isInCar) player.transform.localPosition = Vector3.zero;
-
         Vector2 rayDirection = Vector2.zero;
         Quaternion rotation = Quaternion.Euler(0, 0, 180);
         if (!GetComponent<DriveCarSystem>().carObject.playerInCar) rayDirection = (playerRotation.playerMouseRotation * rotation) * Vector2.up;
@@ -46,18 +42,20 @@ public class EnterCar : MonoBehaviour
 
     void CarEnter(RaycastHit2D pHit)
     {
-        isInCar = true;
         pHit.collider.GetComponent<DriveCarSystem>().carObject.playerInCar = true;
         player.transform.SetParent(pHit.collider.transform);
-        player.transform.localPosition = new Vector3(0, 0, 0);
+        player.transform.localPosition = Vector3.zero;
+        player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         player.transform.rotation = pHit.collider.transform.rotation;
+<<<<<<< HEAD
         player.transform.GetChild(0).SetParent(transform);
+=======
+>>>>>>> parent of 3801b1f (Merge branch 'Developer' into FEAT-ReloadAnim)
         player.SetActive(false);
     }
     
     void CarLeave(RaycastHit2D pHit)
     {
-        isInCar = false;
         pHit.collider.GetComponent<DriveCarSystem>().carObject.playerInCar = false;
         transform.Find("Light").SetParent(player.transform);
         player.transform.SetParent(pHit.collider.transform.parent);

@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Sprite playerSprite;
     SpriteRenderer spriteRenderer;
 
-    public bool isInCar = false;
-
     Animator animator;
 
     void Start()
