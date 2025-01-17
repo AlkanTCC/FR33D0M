@@ -7,32 +7,39 @@ public class PlaytimeTracker : MonoBehaviour
     public float totalPlaytime;
     public TMP_Text playtimeText;
     public int dayCount = 0;
+    public Vector2 time;
 
     [Header("Time Control")]
     public float timeMultiplier = 1f;
 
+    private void Start()
+    {
+        InvokeRepeating("UpdatePlaytime", 0, 0.1f);
+    }
+
     void Update()
     {
-        UpdatePlaytime(Time.deltaTime * timeMultiplier);
         UpdateUI();
     }
 
-    public void UpdatePlaytime(float deltaTime)
+    void UpdatePlaytime()
     {
-        totalPlaytime += deltaTime / 2;
-
-        if (totalPlaytime >= 24 * 60 * 60)
+        if (totalPlaytime == 1440)
         {
             totalPlaytime = 0;
             dayCount++;
         }
+        else
+        {
+            totalPlaytime += 0.1f * timeMultiplier;
+        }
+
+        time = new Vector2(Mathf.FloorToInt((totalPlaytime / 60) % 24), Mathf.FloorToInt(totalPlaytime % 60));
+        print(totalPlaytime);
     }
 
-    private void UpdateUI()
+    void UpdateUI()
     {
-        int hours = Mathf.FloorToInt((totalPlaytime / 60) % 24);
-        int minutes = Mathf.FloorToInt(totalPlaytime % 60);
-
-        playtimeText.text = $"<color=yellow>{hours:00}:{minutes:00}</color>";
+        playtimeText.text = $"<color=yellow>{time.x:00}:{time.y:00}</color>";
     }
 }
