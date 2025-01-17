@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
         {
             if (CriticalHit())
             {
-                totalDamage = playerShoot.currentWeapon.damage * playerShoot.currentWeapon.critDmg;
+                totalDamage = playerShoot.currentWeapon.damage * playerShoot.currentWeapon.critRate;
                 takeDamage.HP -= totalDamage;
                 print("Criticalstrike");
                 GameObject damageInstanceCrit = Instantiate(damagePreFabCrit, enemy.transform);
