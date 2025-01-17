@@ -1,10 +1,19 @@
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int playerMoney = 0;
-    public int playerHP = 100;
-    public int playerArmor = 0;
+    // Script gemaakt door Esat Yavuz
+
+    [SerializeField] TextMeshProUGUI moneyTMP;
+    [SerializeField] TextMeshProUGUI hpTMP;
+    [SerializeField] TextMeshProUGUI armorTMP;
+
+    private int playerMoney = 0;
+    private int playerHP = 100;
+    private int playerArmor = 0;
+
+    private Vector2 playerLocation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,8 +22,16 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        moneyTMP.text = $"${playerMoney}";
+        hpTMP.text = $"{playerHP}";
+        armorTMP.text = $"{playerArmor}";
+        playerLocation = transform.position;
+    }
+
+    public void AddMoney(int moneyAdded)
+    {
+        playerMoney += moneyAdded;
     }
 }
