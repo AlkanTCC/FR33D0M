@@ -4,7 +4,7 @@ public class PlayerRotation : MonoBehaviour
 {
     // Script gemaakt door Esat Yavuz
 
-    [SerializeField] private float playerRotationSpeed = 3f;
+    [SerializeField] private float playerRotationSpeed = 5f;
 
     Vector2 mousePos;
 
@@ -21,6 +21,6 @@ public class PlayerRotation : MonoBehaviour
     {
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         playerMouseRotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
-        transform.rotation = Quaternion.Lerp(transform.rotation, playerMouseRotation, playerRotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, playerMouseRotation, playerRotationSpeed * Time.deltaTime);
     }
 }

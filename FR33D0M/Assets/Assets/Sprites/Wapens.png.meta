@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: a890f00a41460c74a81d305b355966f6
+guid: aa1877c826a835d4788b930f8e460999
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6991849013916550155
-    second: Death_0
+      213: -1036085984574199721
+    second: Wapens_0
   - first:
-      213: -276728812324164698
-    second: Death_1
+      213: 7275757981789445714
+    second: Wapens_1
   - first:
-      213: 3156895337291164288
-    second: Death_2
+      213: -3608128059969349452
+    second: Wapens_2
   - first:
-      213: 1400002288684528572
-    second: Death_3
+      213: -7506691004217458305
+    second: Wapens_3
   - first:
-      213: -1891625820773287384
-    second: Death_4
+      213: 7549874251622533589
+    second: Wapens_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,13 +138,79 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_0
+      name: Wapens_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758a1b459451f91f0800000000000000
+      internalID: -1036085984574199721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapens_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ed548f55fa8f460800000000000000
+      internalID: 7275757981789445714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapens_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b8586965aa5dedc0800000000000000
+      internalID: -3608128059969349452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wapens_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,42 +219,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0449ad32a9080160800000000000000
-      internalID: 6991849013916550155
+      spriteID: f718ff6cd40e2d790800000000000000
+      internalID: -7506691004217458305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ab6d428c9cd82cf0800000000000000
-      internalID: -276728812324164698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_2
+      name: Wapens_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,52 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08aa354559b8fcb20800000000000000
-      internalID: 3156895337291164288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb376cdf9aecd6310800000000000000
-      internalID: 1400002288684528572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82af9d896589fb5e0800000000000000
-      internalID: -1891625820773287384
+      spriteID: 5d944d281aa86c860800000000000000
+      internalID: 7549874251622533589
       vertices: []
       indices: 
       edges: []
@@ -251,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 30a61cc70fec60948b0ecb5fcb030e32
+    spriteID: 2e4de229fe8869d4f910d1a5a99d936b
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Death_0: 6991849013916550155
-      Death_1: -276728812324164698
-      Death_2: 3156895337291164288
-      Death_3: 1400002288684528572
-      Death_4: -1891625820773287384
+      Wapens_0: -1036085984574199721
+      Wapens_1: 7275757981789445714
+      Wapens_2: -3608128059969349452
+      Wapens_3: -7506691004217458305
+      Wapens_4: 7549874251622533589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

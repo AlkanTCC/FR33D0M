@@ -17,8 +17,7 @@ MonoBehaviour:
   price: 0
   fireRate: 0.5
   damage: 30
-  critRate: 35
-  ammo: 10
+  critRate: 0
+  ammo: 10000
   reloadTime: 2
   range: 6
-  critDmg: 3
