@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
         
        // enemy = FindFirstObjectByType<TakeDamage>().gameObject;
        // takeDamage = FindFirstObjectByType<TakeDamage>();
-        mainCamera = Camera.main;
         playerShoot = FindFirstObjectByType<PlayerShoot>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
@@ -36,13 +35,13 @@ public class Bullet : MonoBehaviour
                 totalDamage = playerShoot.currentWeapon.damage * playerShoot.currentWeapon.critDmg;
                 takeDamage.HP -= totalDamage;
                 print("Criticalstrike");
-                GameObject damageInstanceCrit = Instantiate(damagePreFabCrit, enemy.transform.position, Quaternion.identity);
+                GameObject damageInstanceCrit = Instantiate(damagePreFabCrit, enemy.transform);
                 damageInstanceCrit.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = totalDamage.ToString();
             }
             else
             {
             takeDamage.HP -= playerShoot.currentWeapon.damage;
-            GameObject damageInstance = Instantiate(GetPopUp(), enemy.transform.position, Quaternion.identity );
+            GameObject damageInstance = Instantiate(GetPopUp(), enemy.transform);
             damageInstance.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = playerShoot.currentWeapon.damage.ToString();
             }
             gameObject.SetActive(false);
