@@ -51,19 +51,25 @@ public class EnterCar : MonoBehaviour
         player.transform.SetParent(pHit.collider.transform);
         player.transform.localPosition = new Vector3(0, 0, 0);
         player.transform.rotation = pHit.collider.transform.rotation;
-        player.transform.GetChild(0).SetParent(transform);
-        player.SetActive(false);
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Animator>().enabled = false;
+        player.GetComponent<PlayerRotation>().enabled = false;
+        player.GetComponent<BoxCollider2D>().enabled = false;
     }
     
     void CarLeave(RaycastHit2D pHit)
     {
         isInCar = false;
         pHit.collider.GetComponent<DriveCarSystem>().carObject.playerInCar = false;
-        transform.Find("Light").SetParent(player.transform);
         player.transform.SetParent(pHit.collider.transform.parent);
         player.transform.localPosition = new Vector3(pHit.collider.transform.position.x, pHit.collider.transform.position.y, 0);
         player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         player.transform.rotation = pHit.collider.transform.rotation;
-        player.SetActive(true);
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Animator>().enabled = true;
+        player.GetComponent<PlayerRotation>().enabled = true;
+        player.GetComponent<BoxCollider2D>().enabled = true;
     }
 }
