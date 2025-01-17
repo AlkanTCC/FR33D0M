@@ -7,11 +7,11 @@ using System.Runtime.CompilerServices;
 // Gemaakt door Jin aljumaili //
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] Bullet bullet;
     [SerializeField] Weapons pistol;
     [SerializeField] Weapons sub;
     public Transform firePoint;
-    public Weapons currentWeapon;
+    [HideInInspector] public Weapons currentWeapon;
+    BulletPool pool;
     bool shooting = false;
     bool reloading = false;
     int currentAmmoPistol;
@@ -21,7 +21,7 @@ public class PlayerShoot : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        pool = FindFirstObjectByType<BulletPool>();
         currentAmmoPistol = pistol.ammo;
         currentAmmoSub = sub.ammo;
 
@@ -108,7 +108,7 @@ public class PlayerShoot : MonoBehaviour
     }
     IEnumerator Reloading()
     {
-        if (currentAmmoPistol != pistol.ammo || currentAmmoSub != sub.ammo)
+        if (currentAmmoPistol < pistol.ammo || currentAmmoSub < sub.ammo)
         {
              reloading = true;
 
@@ -127,6 +127,10 @@ public class PlayerShoot : MonoBehaviour
                 Debug.Log("Reloaded");
                 currentAmmoSub = currentWeapon.ammo;
             }
+        }
+        else
+        {
+            print("Weapon is full");
         }
             reloading = false;
 

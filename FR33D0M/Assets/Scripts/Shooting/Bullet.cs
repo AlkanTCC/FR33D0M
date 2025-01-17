@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 // gemaakt door Jin aljumaili
 public class Bullet : MonoBehaviour
 {
-
+    Camera mainCamera;
     public GameObject damagePreFab1,damagePreFab2, damagePreFab3, damagePreFabCrit, enemy;
     TextMeshPro textMesh;
     [SerializeField] Rigidbody2D rb;
@@ -20,8 +20,9 @@ public class Bullet : MonoBehaviour
     void Awake()
     {
         
-        enemy = FindFirstObjectByType<TakeDamage>().gameObject;
-        takeDamage = FindFirstObjectByType<TakeDamage>();
+       // enemy = FindFirstObjectByType<TakeDamage>().gameObject;
+       // takeDamage = FindFirstObjectByType<TakeDamage>();
+        mainCamera = Camera.main;
         playerShoot = FindFirstObjectByType<PlayerShoot>();
         player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
@@ -35,13 +36,13 @@ public class Bullet : MonoBehaviour
                 totalDamage = playerShoot.currentWeapon.damage * playerShoot.currentWeapon.critDmg;
                 takeDamage.HP -= totalDamage;
                 print("Criticalstrike");
-                GameObject damageInstanceCrit = Instantiate(damagePreFabCrit, enemy.transform);
+                GameObject damageInstanceCrit = Instantiate(damagePreFabCrit, enemy.transform.position, Quaternion.identity);
                 damageInstanceCrit.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = totalDamage.ToString();
             }
             else
             {
             takeDamage.HP -= playerShoot.currentWeapon.damage;
-            GameObject damageInstance = Instantiate(GetPopUp(), enemy.transform);
+            GameObject damageInstance = Instantiate(GetPopUp(), enemy.transform.position, Quaternion.identity );
             damageInstance.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = playerShoot.currentWeapon.damage.ToString();
             }
             gameObject.SetActive(false);

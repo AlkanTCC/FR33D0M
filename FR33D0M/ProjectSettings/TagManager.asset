@@ -49,11 +49,11 @@ TagManager:
   - name: Car
     uniqueID: 4091828963
     locked: 0
-  - name: Bullet
-    uniqueID: 4160170021
-    locked: 0
   - name: Buildings
     uniqueID: 1346462913
+    locked: 0
+  - name: Bullet
+    uniqueID: 4160170021
     locked: 0
   m_RenderingLayers:
   - Default
