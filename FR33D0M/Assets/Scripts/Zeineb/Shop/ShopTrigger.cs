@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShopTrigger : MonoBehaviour
 {
     public Canvas shopCanvas;
+    public Canvas canvas;
     //Gemaakt door: Zeineb
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -11,6 +12,7 @@ public class ShopTrigger : MonoBehaviour
         {
             print("bye");
             shopCanvas.gameObject.SetActive(true);
+            canvas.gameObject.SetActive(false);
         }
     }
 
