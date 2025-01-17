@@ -13,7 +13,7 @@ public class NPCWalkingSystem : MonoBehaviour
     NavMeshAgent agent;
     NPC npc;
 
-    NPCObject npcObject;
+    [SerializeField] NPCObject npcObject;
     List<Vector3Int> allTilePositions;
 
     Vector2 target;
