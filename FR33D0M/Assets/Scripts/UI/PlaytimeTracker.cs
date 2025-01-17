@@ -35,7 +35,6 @@ public class PlaytimeTracker : MonoBehaviour
         }
 
         time = new Vector2(Mathf.FloorToInt((totalPlaytime / 60) % 24), Mathf.FloorToInt(totalPlaytime % 60));
-        print(totalPlaytime);
     }
 
     void UpdateUI()
