@@ -1,50 +1,45 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; 
+
 public class PlaytimeTracker : MonoBehaviour
 {
-    //Gemaakt door Roni
-    private float totalPlaytime;
-    public TMP_Text playtimeText; 
+    // Gemaakt door Roni
+    public float totalPlaytime;
+    public TMP_Text playtimeText;
+    public int dayCount = 0;
+    public Vector2 time;
+
+    [Header("Time Control")]
+    public float timeMultiplier = 1f;
+
+    private void Start()
+    {
+        InvokeRepeating("UpdatePlaytime", 0, 0.1f);
+    }
 
     void Update()
     {
-        UpdatePlaytime(Time.deltaTime);
-        UpdateUI(); 
+        UpdateUI();
     }
 
-    public void UpdatePlaytime(float deltaTime)
+    void UpdatePlaytime()
     {
-        totalPlaytime += deltaTime;
+        if (totalPlaytime == 1440)
+        {
+            totalPlaytime = 0;
+            dayCount++;
+        }
+        else
+        {
+            totalPlaytime += 0.1f * timeMultiplier;
+        }
+
+        time = new Vector2(Mathf.FloorToInt((totalPlaytime / 60) % 24), Mathf.FloorToInt(totalPlaytime % 60));
+        print(totalPlaytime);
     }
 
-    public float GetTotalPlaytime()
+    void UpdateUI()
     {
-        return totalPlaytime;
-    }
-
-    public void ResetPlaytime()
-    {
-        totalPlaytime = 0;
-    }
-
-    public void SavePlaytime()
-    {
-        PlayerPrefs.SetFloat("TotalPlaytime", totalPlaytime);
-        PlayerPrefs.Save();
-    }
-
-    public void LoadPlaytime()
-    {
-        totalPlaytime = PlayerPrefs.GetFloat("TotalPlaytime", 0);
-    }
-
-    private void UpdateUI()
-    {
-        int minutes = Mathf.FloorToInt(totalPlaytime / 60);
-        int seconds = Mathf.FloorToInt(totalPlaytime % 60);
-
-        playtimeText.text = $"<color=yellow>{minutes:00}:{seconds:00}</color>";
-
+        playtimeText.text = $"<color=yellow>{time.x:00}:{time.y:00}</color>";
     }
 }
