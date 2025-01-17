@@ -12,20 +12,33 @@ public class BulletPool : MonoBehaviour
 
     private void Awake()
     {
+        if (BulletPreFab == null)
+        {
+            Debug.LogError("BulletPreFab is not assigned in the Inspector!");
+            return;
+        }
         if (instance == null)
         {
-        instance = this;
+            Debug.Log("test");
+            instance = this;
         }
     }
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i = 0; i < amountToPool; i++)
-        {
-            GameObject obj = Instantiate(BulletPreFab);
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
-        }
+            if (BulletPreFab == null)
+            {
+                Debug.LogError("BulletPreFab is not assigned in the Inspector!");
+                return;
+            }
+
+            for (int i = 0; i < amountToPool; i++)
+            {
+                GameObject obj = Instantiate(BulletPreFab);
+                obj.SetActive(false);
+                pooledObjects.Add(obj);
+            }
     }
     public GameObject GetGameObject()
     {
